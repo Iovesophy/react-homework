@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+   node:
+     build:
+       context: .
+       dockerfile: Dockerfile
+     volumes:
+      - ./:/app
+     command: sh -c "cd react-sample && yarn start"
+     ports:
+      - "3000:3000"
+   appbuild:
+     build:
+       context: .
+       dockerfile: Dockerfile
+     volumes:
+      - ./:/app
+     command: sh -c "cd react-sample && yarn build"
